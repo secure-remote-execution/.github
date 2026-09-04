@@ -1,4 +1,4 @@
-# 👋 [secure-remote-execution]
+# SECURE REMOTE EXECUTION 
 
 Organización académica para el desarrollo del **Secure Product Challenge**, un reto acumulativo del curso **FDSI (Fundamentos de Seguridad Informática)** — Escuela Colombiana de Ingeniería Julio Garavito.
 
