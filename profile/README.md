@@ -40,8 +40,8 @@ Este es un proyecto **académico con datos ficticios**. Durante el Laboratorio 3
 
 ## Equipo
 
-- **Tomás Olaya Díaz** — [GitHub](https://github.com/)
-- **Juan Pablo Vega Villamil** — [GitHub](https://github.com/)
+- **Tomás Olaya Díaz** — [GitHub](https://github.com/iAxstral)
+- **Juan Pablo Vega Villamil** — [GitHub](https://github.com/JDeltax)
 
 ## Recursos
 
