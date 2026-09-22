@@ -31,6 +31,11 @@ Usuario ──HTTP──▶ Nginx ──▶ Frontend (React)
                        └──▶ /api ──▶ Backend (Spring Boot) ──▶ PostgreSQL
 ```
 
+##  DFD 
+
+<img width="672" height="497" alt="image" src="https://github.com/user-attachments/assets/75485103-1acf-4bac-ba88-b493e99dc933" />
+
+
 ## Alcance de seguridad (importante)
 
 Este es un proyecto **académico con datos ficticios**. Durante el Laboratorio 3:
