@@ -35,7 +35,7 @@ Usuario ──HTTP──▶ Nginx ──▶ Frontend (React)
 ## Diagramas
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/75485103-1acf-4bac-ba88-b493e99dc933" width="600" alt="DFD del sistema, Laboratorio 3"/>
+  <img src="https://raw.githubusercontent.com/secure-remote-execution/secure-frontend/main/docs/images/DFD.png" width="600" alt="DFD del sistema, Laboratorio 3"/>
 </p>
 <p align="center"><em>Diagrama de flujo de datos, Laboratorio 3</em></p>
 
