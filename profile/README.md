@@ -43,12 +43,17 @@ Usuario ──HTTP──▶ Nginx ──▶ Frontend (React)
 
 | Objeto | S | T | R | I | D | E | Descripción | Validez |
 |---|:---:|:---:|:---:|:---:|:---:|:---:|---|---|
-| Usuario anónimo → Aplicación web | | X | X | X | | | El tráfico HTTP no cifrado permite leer y potencialmente alterar el contenido de la carga inicial en tránsito. Nmap y curl revelaron la versión exacta del servidor y el HTML completo. Sin autenticación, no es posible atribuir una solicitud a un usuario identificable. | Confirmada con evidencia (Nmap, curl) |
-| Aplicación web → API pública | | X | X | X | | | La captura con Wireshark del POST hacia `/api/scripts/simulate` mostró el cuerpo JSON completo en texto plano, con el identificador del dispositivo, el script y los parámetros legibles sin cifrado alguno. | Confirmada con evidencia (Wireshark) |
+| Usuario anónimo → Aplicación web (GET /) | | X | X | X | | | El tráfico HTTP no cifrado permite leer y potencialmente alterar el contenido de la carga inicial en tránsito. Nmap y curl revelaron la versión exacta del servidor y el HTML completo. Sin autenticación, no es posible atribuir una solicitud a un usuario identificable. | Confirmada con evidencia (Nmap, curl) |
+| Navegador → API pública (GET /api/devices) | | X | X | X | | | El inventario de dispositivos se consulta sobre el mismo canal HTTP sin cifrar, por lo que los datos de cada dispositivo viajan legibles y podrían alterarse en tránsito. Al no existir autenticación, no hay forma de saber quién realizó la consulta. | Confirmada por extensión del mismo protocolo sin cifrar |
+| Navegador → API pública (POST /api/scripts/simulate) | | X | X | X | | | La captura con Wireshark del POST mostró el cuerpo JSON completo en texto plano, con el identificador del dispositivo, el script y los parámetros legibles sin cifrado alguno. | Confirmada con evidencia (Wireshark) |
+| Aplicación web / Nginx (cabeceras de respuesta) | | | | X | | | El análisis pasivo con ZAP encontró ausencia de Content-Security-Policy, ausencia de protección contra clickjacking, el header Server exponiendo la versión exacta de Nginx, y falta de X-Content-Type-Options. | Confirmada con evidencia (OWASP ZAP) |
+| Nginx (proxy interno) → Backend Spring Boot | | | | | | | Comunicación entre Nginx y el backend sobre localhost en el puerto 8081. No está expuesta fuera del servidor, por lo que no se evaluó de forma directa. | No evaluada en este laboratorio |
 | API pública → PostgreSQL | | | | | | | Consultas entre el backend y la base de datos de inventario. Este flujo no está expuesto fuera del servidor, por lo que no se evaluó de forma directa durante el reconocimiento de este laboratorio. | No evaluada en este laboratorio |
+| Simulador de scripts (control de autorización) | X | | | | | X | Al no existir identidad ni roles, cualquier persona anónima puede invocar la simulación con el mismo nivel de acceso que tendría un operador autorizado, y puede declarar cualquier deviceId o scriptName sin que el sistema verifique quién lo solicita. | Identificada como riesgo de diseño, no ejecutada como prueba técnica en este laboratorio |
 
 **S:** Spoofing · **T:** Tampering · **R:** Repudiation · **I:** Information Disclosure · **D:** Denial of Service · **E:** Elevation of Privilege
 
+> No se evaluó Denial of Service en ningún flujo, ya que la guía del laboratorio prohíbe explícitamente ejecutar pruebas de denegación de servicio contra el objetivo.
 ## Alcance de seguridad (importante)
 
 Este es un proyecto **académico con datos ficticios**. Durante el Laboratorio 3:
