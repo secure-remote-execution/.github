@@ -26,10 +26,13 @@ El sistema está construido como **microservicios**, separados en repositorios i
 | [`backend`](../backend) | API de inventario de dispositivos y simulación de scripts | Java 21 · Spring Boot · PostgreSQL |
 | [`frontend`](../frontend) | Interfaz web para consultar el inventario y simular ejecuciones | React · Vite · TypeScript | 
 
-''' 
-Usuario ──HTTP──▶ Nginx ──▶ Frontend (React)
-└──▶ /api ──▶ Backend (Spring Boot) ──▶ PostgreSQL 
-''' 
+```mermaid
+flowchart LR
+    A[Usuario] -->|HTTP| B[Nginx]
+    B --> C[Frontend React]
+    B -->|/api| D[Backend Spring Boot]
+    D --> E[(PostgreSQL)]
+```
 
 
 ## Diagramas
