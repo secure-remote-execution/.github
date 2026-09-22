@@ -12,7 +12,7 @@ El sistema permite **consultar un inventario ficticio de dispositivos de red** y
 
 | Laboratorio | Enfoque | Estado | Informe |
 |---|---|---|---|
-| **Lab 3** | HTTP público sin autenticación — reconocimiento, telemetría y hardening básico | ✅ | [Ver informe](https://github.com/secure-remote-execution/backend/blob/main/docs/labs/FDSI-Lab3.md) |
+| **Lab 3** | HTTP público sin autenticación — reconocimiento, telemetría y hardening básico | ✅ | [Ver informe](https://github.com/secure-remote-execution/backend/blob/main/docs/labs/FDSI%20Lab3.pdf) |
 | **Lab 4** | HTTPS, identidad, sesiones, autenticación y roles | 🔜 | — |
 | **Lab 5** | DevSecOps y supply chain (SAST, SCA, SBOM, contenedores) | 🔜 | — |
 | **Lab 6** | Cloud Purple Team (DAST autenticado, WAF, observabilidad) | 🔜 | — |
